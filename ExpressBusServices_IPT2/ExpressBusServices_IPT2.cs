@@ -12,7 +12,7 @@ namespace ExpressBusServices_IPT2
         {
             get
             {
-                return "Express Bus Services";
+                return "Express Bus Services (IPT2 plugin)";
             }
         }
 
@@ -20,7 +20,7 @@ namespace ExpressBusServices_IPT2
         {
             get
             {
-                return "Unlock the peak efficiency of buses.";
+                return "Reads information from IPT2 unbunching settings to help the main mod.";
             }
         }
 
