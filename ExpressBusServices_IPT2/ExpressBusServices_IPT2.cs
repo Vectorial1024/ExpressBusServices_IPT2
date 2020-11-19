@@ -59,5 +59,13 @@ namespace ExpressBusServices_IPT2
         {
             PatchController.Deactivate();
         }
+
+        // It seems they will dynamically find whether a certain method that matches some criteria
+        // exists, and then apply UI settings to it.
+        // This is kinda like an in-house Harmony Lib except it targets some very specific areas.
+        public void OnSettingsUI(UIHelperBase helper)
+        {
+            UIHelperBase group = helper.AddGroup("Express Bus Services: Settings");
+        }
     }
 }
