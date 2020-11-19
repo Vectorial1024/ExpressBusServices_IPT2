@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ICities;
+using UnityEngine;
 
 namespace ExpressBusServices_IPT2
 {
@@ -22,6 +23,18 @@ namespace ExpressBusServices_IPT2
             {
                 return "Reads information from IPT2 unbunching settings to help the main mod.";
             }
+        }
+
+        /// <summary>
+        /// Mod instance is created; initialize our values
+        /// </summary>
+        /// <param name="loading"></param>
+        public override void OnCreated(ILoading loading)
+        {
+            base.OnCreated(loading);
+
+            // being setting the settings
+            IPT2UnbunchingRuleReader.CurrentRuleInterpretation = IPT2UnbunchingRuleReader.InterpretationMode.FIRST_PRINCIPLES;
         }
 
         /// <summary>
@@ -66,6 +79,16 @@ namespace ExpressBusServices_IPT2
         public void OnSettingsUI(UIHelperBase helper)
         {
             UIHelperBase group = helper.AddGroup("Express Bus Services: Settings");
+            group.AddDropdown("IPT2 Unbunching Interpretation",
+                new string[] {
+                    "First Principles",
+                    "Respect IPT2 unbunching", 
+                    "Invert IPT2 unbunching" },
+                0,
+                (index) => {
+                    IPT2UnbunchingRuleReader.CurrentRuleInterpretation = (IPT2UnbunchingRuleReader.InterpretationMode) index;
+                    Debug.Log($"Express Bus Services IPT2 Plugin: received index {index}");
+                });
         }
     }
 }
