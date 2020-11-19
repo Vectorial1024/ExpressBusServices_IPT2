@@ -51,6 +51,10 @@
       <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\ICities.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ImprovedPublicTransport2">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\workshop\content\255710\928128676\ImprovedPublicTransport2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
