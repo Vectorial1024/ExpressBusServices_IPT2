@@ -64,7 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExpressBusServices_IPT2.cs" />
+    <Compile Include="IPT2UnbunchingRuleReader.cs" />
     <Compile Include="PatchController.cs" />
+    <Compile Include="Patch_DepartureChecker_CheckEligibleForInstaDepart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
