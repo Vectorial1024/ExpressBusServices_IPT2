@@ -32,9 +32,7 @@ namespace ExpressBusServices_IPT2
         public override void OnCreated(ILoading loading)
         {
             base.OnCreated(loading);
-
-            // being setting the settings
-            IPT2UnbunchingRuleReader.CurrentRuleInterpretation = IPT2UnbunchingRuleReader.InterpretationMode.FIRST_PRINCIPLES;
+            ModSettingController.Touch();
         }
 
         /// <summary>
