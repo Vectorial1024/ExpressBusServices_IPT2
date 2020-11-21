@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ExpressBusServices;
 using HarmonyLib;
 using ImprovedPublicTransport2;
 
 namespace ExpressBusServices_IPT2
 {
-    [HarmonyPatch(typeof(BusAI))]
-    [HarmonyPatch("CanLeave", MethodType.Normal)]
+    [HarmonyPatch(typeof(DepartureChecker))]
+    [HarmonyPatch("NowIsEligibleForInstantDeparture", MethodType.Normal)]
     public class Patch_DepartureChecker_CheckEligibleForInstaDepart
     {
         [HarmonyPostfix]
@@ -20,10 +21,7 @@ namespace ExpressBusServices_IPT2
                 return;
             }
             // Determine if we are allowed to depart immediately by reading the IPT2 settings.
-            if (IPT2UnbunchingRuleReader.ReadAndInterpretCanInstantlyDepartNow(vehicleID, ref vehicleData))
-            {
-                __result = true;
-            }
+            __result = IPT2UnbunchingRuleReader.ReadAndInterpretCanInstantlyDepartNow(vehicleID, ref vehicleData);
             return;
         }
     }
