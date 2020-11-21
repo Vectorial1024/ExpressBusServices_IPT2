@@ -9,6 +9,7 @@ namespace ExpressBusServices_IPT2
     {
         public static void Touch()
         {
+            // with JSON being so tedious in C# I can understand why everyone opted for XML setting files
             ReadSettings();
             WriteSettings();
         }
