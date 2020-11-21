@@ -30,21 +30,20 @@ namespace ExpressBusServices_IPT2
                 {
                     XmlDocument document = new XmlDocument();
                     document.Load(pathToConfigXml);
-                    XmlNode root = document.FirstChild;
-                    if (root.HasChildNodes)
+                    for (int i = 0; i < document.ChildNodes.Count; i++)
                     {
-                        var interestedNode = root.ChildNodes[0];
-                        if (interestedNode.Name == "ExpressBusServices_IPT2_Config")
+                        XmlNode root = document.ChildNodes[i];
+                        if (root.Name == "ExpressBusServices_IPT2_Config")
                         {
-                            XmlNodeList configNodes = interestedNode.ChildNodes;
-                            for (int i = 0; i < configNodes.Count; i++)
+                            for (int j = 0; j < root.ChildNodes.Count; j++)
                             {
-                                XmlNode currentNode = configNodes[i];
-                                if (currentNode.Name == "SelectedIndex")
+                                XmlNode currentConfigNode = root.ChildNodes[j];
+                                if (currentConfigNode.Name == "SelectedIndex")
                                 {
-                                    string tempIndex = currentNode.InnerText;
+                                    string tempIndex = currentConfigNode.InnerText;
                                     int selectedIndex = Convert.ToInt32(tempIndex);
                                     interpretation = (IPT2UnbunchingRuleReader.InterpretationMode)selectedIndex;
+                                    Debug.Log($"Read {interpretation} from settings file.");
                                 }
                             }
                         }
@@ -76,6 +75,7 @@ namespace ExpressBusServices_IPT2
 
                 writer.WriteStartElement("SelectedIndex");
                 writer.WriteString(((int) interpretation).ToString());
+                Debug.Log($"Write {((int)interpretation).ToString()} to config file.");
                 writer.WriteEndElement();
 
                 writer.WriteEndElement();
