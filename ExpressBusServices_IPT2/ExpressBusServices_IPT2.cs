@@ -60,6 +60,7 @@ namespace ExpressBusServices_IPT2
             }
 
             PatchController.Activate();
+            ModSettingController.Touch();
         }
 
         /// <summary>
@@ -69,6 +70,7 @@ namespace ExpressBusServices_IPT2
         public override void OnLevelUnloading()
         {
             PatchController.Deactivate();
+            ModSettingController.WriteSettings();
         }
 
         // It seems they will dynamically find whether a certain method that matches some criteria
@@ -78,6 +80,7 @@ namespace ExpressBusServices_IPT2
         {
             UIHelperBase group = helper.AddGroup("Express Bus Services: Settings");
             group.AddDropdown("IPT2 Unbunching Interpretation",
+            ModSettingController.Touch();
                 new string[] {
                     "First Principles",
                     "Respect IPT2 unbunching", 
@@ -86,6 +89,7 @@ namespace ExpressBusServices_IPT2
                 (index) => {
                     IPT2UnbunchingRuleReader.CurrentRuleInterpretation = (IPT2UnbunchingRuleReader.InterpretationMode) index;
                     Debug.Log($"Express Bus Services IPT2 Plugin: received index {index}");
+                    ModSettingController.WriteSettings();
                 });
         }
     }
