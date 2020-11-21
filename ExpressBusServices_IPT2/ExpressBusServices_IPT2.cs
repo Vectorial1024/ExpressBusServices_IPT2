@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ColossalFramework.UI;
 using ICities;
 using UnityEngine;
 
@@ -79,8 +80,9 @@ namespace ExpressBusServices_IPT2
         public void OnSettingsUI(UIHelperBase helper)
         {
             UIHelperBase group = helper.AddGroup("Express Bus Services: Settings");
-            group.AddDropdown("IPT2 Unbunching Interpretation",
             ModSettingController.Touch();
+            int selectedIndex = (int) IPT2UnbunchingRuleReader.CurrentRuleInterpretation;
+            var dropdown = group.AddDropdown("IPT2 Unbunching Interpretation",
                 new string[] {
                     "First Principles",
                     "Respect IPT2 unbunching", 
@@ -91,6 +93,11 @@ namespace ExpressBusServices_IPT2
                     Debug.Log($"Express Bus Services IPT2 Plugin: received index {index}");
                     ModSettingController.WriteSettings();
                 });
+            UIDropDown properDropdownObject = dropdown as UIDropDown;
+            if (properDropdownObject != null)
+            {
+                properDropdownObject.selectedIndex = selectedIndex;
+            }
         }
     }
 }
