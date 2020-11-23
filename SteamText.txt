@@ -1,0 +1,16 @@
+Configurable unbunching behavior of the base mod based on IPT2's unbunching settings. Please refer to the base mod for more general info: https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175
+
+[h1]Quick Info[/h1]
+[list]
+[*]REQUIRES BASE MOD: Express Bus Services https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175
+[*]Three bus unbunching interpretation modes available for IPT2 users; explained below
+[/list]
+[h1]Interpretation Modes[/h1]
+[list]
+[*]First Principles (no modification from base mod)
+[*]Respect IPT2 unbunching (unbunch when IPT2 unbunches)
+[*]Invert IPT2 unbunching; more details in the GitHub README, explaining how this might be useful and convenient for IPT2 users
+[/list]
+[h1]GitHub Repo[/h1]
+The GitHub repo, where you many find the source code and the README, is here:
+https://github.com/Vectorial1024/ExpressBusServices_IPT2
