@@ -1,4 +1,4 @@
-Configurable unbunching behavior of the base mod based on IPT2's unbunching settings. Please refer to the base mod for more general info: https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175
+Configurable unbunching behavior of the base mod based on IPT2's unbunching settings. Please refer to the base mod for more general info.
 
 [h1]Quick Info[/h1]
 [list]
