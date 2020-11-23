@@ -1,5 +1,5 @@
 # ExpressBusServices_IPT2
-Optional sister mod of Express Bus Services for better compatibility with IPT2: if also using IPT2, you can now also specify how this mod should interpret IPT2 bus unbunching instructions to be used in the insta-depart behavior of Express Bus Services.
+Optional sister mod of Express Bus Services (https://github.com/Vectorial1024/ExpressBusServices) for better compatibility with IPT2: if also using IPT2, you can now also specify how this mod should interpret IPT2 bus unbunching instructions to be used in the insta-depart behavior of Express Bus Services.
 
 ## Unbunching interpretation modes
 This mod offers a total of 3 unbunching interpretation modes to interpret unbunching instructions from IPT2.
