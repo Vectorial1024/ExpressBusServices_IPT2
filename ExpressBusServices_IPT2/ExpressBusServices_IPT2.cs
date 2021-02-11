@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CitiesHarmony.API;
 using ColossalFramework.UI;
 using ICities;
 using UnityEngine;
@@ -60,8 +61,10 @@ namespace ExpressBusServices_IPT2
                     return;
             }
 
-            PatchController.Activate();
+            // we write settings first so that settings can be updated in case harmony fails
             ModSettingController.Touch();
+            UnifyHarmonyVersions();
+            PatchController.Activate();
         }
 
         /// <summary>
@@ -70,8 +73,10 @@ namespace ExpressBusServices_IPT2
         /// </summary>
         public override void OnLevelUnloading()
         {
-            PatchController.Deactivate();
+            // we write settings first so that settings can be updated in case harmony fails
             ModSettingController.WriteSettings();
+            UnifyHarmonyVersions();
+            PatchController.Deactivate();
         }
 
         // It seems they will dynamically find whether a certain method that matches some criteria
@@ -97,6 +102,18 @@ namespace ExpressBusServices_IPT2
             if (properDropdownObject != null)
             {
                 properDropdownObject.selectedIndex = selectedIndex;
+            }
+        }
+
+        private void UnifyHarmonyVersions()
+        {
+            if (HarmonyHelper.IsHarmonyInstalled)
+            {
+                // this code will redirect our Harmony 2.x version to the authoritative version stipulated by CitiesHarmony
+                // I will make it such that the game will throw hard error if Harmony is not found,
+                // as per my usual software deployment style
+                // the user will have to subscribe to Harmony by themselves. I am not their parent anyways.
+                // so this block will have to be empty.
             }
         }
     }
