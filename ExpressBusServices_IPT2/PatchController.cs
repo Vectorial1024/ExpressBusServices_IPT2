@@ -7,7 +7,7 @@ using HarmonyLib;
 
 namespace ExpressBusServices_IPT2
 {
-    public class PatchController
+    internal class PatchController
     {
         public static string HarmonyModID
         {
