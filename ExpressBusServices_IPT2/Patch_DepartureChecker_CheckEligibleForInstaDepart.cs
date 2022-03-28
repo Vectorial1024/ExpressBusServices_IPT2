@@ -9,7 +9,7 @@ using ImprovedPublicTransport2;
 namespace ExpressBusServices_IPT2
 {
     [HarmonyPatch(typeof(DepartureChecker))]
-    [HarmonyPatch("NowIsEligibleForInstantDeparture", MethodType.Normal)]
+    [HarmonyPatch("StopIsConsideredAsTerminus", MethodType.Normal)]
     public class Patch_DepartureChecker_CheckEligibleForInstaDepart
     {
         [HarmonyPostfix]
