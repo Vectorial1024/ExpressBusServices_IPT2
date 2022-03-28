@@ -40,7 +40,7 @@ namespace ExpressBusServices_IPT2
                     // unbunching for line is active and unbinching at this stop is allowed
                     // this is mainly for convenience where players need not go to every stop
                     // and flick the unbunching toggle to make it NOT unbunch at all the intermediate stops
-                    return lineIsUsingUnbunching && !stopIsUsingUnbunching;
+                    return !lineIsUsingUnbunching || !stopIsUsingUnbunching;
                 default:
                     // dont block if somehow cannot determine if should insta depart
                     return false;
