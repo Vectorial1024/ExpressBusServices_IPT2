@@ -43,7 +43,7 @@ namespace ExpressBusServices_IPT2
                     return lineIsUsingUnbunching && !stopIsUsingUnbunching;
                 default:
                     // dont block if somehow cannot determine if should insta depart
-                    return true;
+                    return false;
             }
         }
     }
