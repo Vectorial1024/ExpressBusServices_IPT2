@@ -17,18 +17,17 @@ namespace ExpressBusServices_IPT2
 
         public static InterpretationMode CurrentRuleInterpretation { get; set; }
 
-        public static bool ReadAndInterpretIsConsideredAsTerminus(ushort vehicleID, ref Vehicle vehicleData)
+        public static bool ReadAndInterpretIsConsideredAsTerminus(ushort stopID, ushort transportLineID)
         {
             // if it is a terminus, then we unbunch
             // if we want to unbunch, then interpret it as a terminus
-            ushort currentStop = CachedVehicleData.m_cachedVehicleData[vehicleID].CurrentStop;
-            if (currentStop == 0)
+            if (stopID == 0)
             {
                 // we have no idea what is going on. allow them to proceed.
                 return false;
             }
-            bool stopIsUsingUnbunching = CachedNodeData.m_cachedNodeData[currentStop].Unbunching;
-            bool lineIsUsingUnbunching = CachedTransportLineData.GetUnbunchingState(vehicleData.m_transportLine);
+            bool stopIsUsingUnbunching = CachedNodeData.m_cachedNodeData[stopID].Unbunching;
+            bool lineIsUsingUnbunching = CachedTransportLineData.GetUnbunchingState(transportLineID);
             switch (CurrentRuleInterpretation)
             {
                 case InterpretationMode.RESPECT_IPT2:

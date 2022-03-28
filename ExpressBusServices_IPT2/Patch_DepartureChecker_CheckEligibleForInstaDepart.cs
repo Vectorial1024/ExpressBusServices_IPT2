@@ -21,7 +21,7 @@ namespace ExpressBusServices_IPT2
                 return;
             }
             // Determine if we are allowed to depart immediately by reading the IPT2 settings.
-            __result = IPT2UnbunchingRuleReader.ReadAndInterpretIsConsideredAsTerminus(vehicleID, ref vehicleData);
+            __result = IPT2UnbunchingRuleReader.ReadAndInterpretIsConsideredAsTerminus(ref vehicleData, stopID);
             return;
         }
     }
