@@ -17,13 +17,13 @@ namespace ExpressBusServices_IPT2
 
         public static InterpretationMode CurrentRuleInterpretation { get; set; }
 
-        public static bool ReadAndInterpretCanInstantlyDepartNow(ushort vehicleID, ref Vehicle vehicleData)
+        public static bool ReadAndInterpretIsConsideredAsTerminus(ushort vehicleID, ref Vehicle vehicleData)
         {
             ushort currentStop = CachedVehicleData.m_cachedVehicleData[vehicleID].CurrentStop;
             if (currentStop == 0)
             {
                 // we have no idea what is going on. allow them to proceed.
-                return true;
+                return false;
             }
             bool stopIsUsingUnbunching = CachedNodeData.m_cachedNodeData[currentStop].Unbunching;
             bool lineIsUsingUnbunching = CachedTransportLineData.GetUnbunchingState(vehicleData.m_transportLine);
@@ -33,14 +33,14 @@ namespace ExpressBusServices_IPT2
                     // allow insta depart if 
                     // unbunching for line is disabled, or
                     // unbunching for line is active and unbunching at this stop is inactive
-                    return !lineIsUsingUnbunching || (!stopIsUsingUnbunching);
+                    return lineIsUsingUnbunching && stopIsUsingUnbunching;
                 case InterpretationMode.INVERT_IPT2:
                     // allow insta depart if
                     // unbunching for line is disabled, or
                     // unbunching for line is active and unbinching at this stop is allowed
                     // this is mainly for convenience where players need not go to every stop
                     // and flick the unbunching toggle to make it NOT unbunch at all the intermediate stops
-                    return !lineIsUsingUnbunching || stopIsUsingUnbunching;
+                    return lineIsUsingUnbunching && !stopIsUsingUnbunching;
                 default:
                     // dont block if somehow cannot determine if should insta depart
                     return true;
