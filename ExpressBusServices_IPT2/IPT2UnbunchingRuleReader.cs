@@ -19,6 +19,8 @@ namespace ExpressBusServices_IPT2
 
         public static bool ReadAndInterpretIsConsideredAsTerminus(ushort vehicleID, ref Vehicle vehicleData)
         {
+            // if it is a terminus, then we unbunch
+            // if we want to unbunch, then interpret it as a terminus
             ushort currentStop = CachedVehicleData.m_cachedVehicleData[vehicleID].CurrentStop;
             if (currentStop == 0)
             {
@@ -30,17 +32,19 @@ namespace ExpressBusServices_IPT2
             switch (CurrentRuleInterpretation)
             {
                 case InterpretationMode.RESPECT_IPT2:
-                    // allow insta depart if 
-                    // unbunching for line is disabled, or
-                    // unbunching for line is active and unbunching at this stop is inactive
+                    // it is a terminus if:
+                    // the line uses unbunching (seems to be true for all types); and
+                    // the stop uses unbunching
                     return lineIsUsingUnbunching && stopIsUsingUnbunching;
                 case InterpretationMode.INVERT_IPT2:
-                    // allow insta depart if
-                    // unbunching for line is disabled, or
-                    // unbunching for line is active and unbinching at this stop is allowed
-                    // this is mainly for convenience where players need not go to every stop
-                    // and flick the unbunching toggle to make it NOT unbunch at all the intermediate stops
-                    return !lineIsUsingUnbunching || !stopIsUsingUnbunching;
+                    // it is a terminus if:
+                    // the line uses unbunching but the stop does not; OR
+                    // the line does not use unbunching but the stop does (is this even possible?)
+                    // this resutls in the use of XOR, which is manifested as a !=.
+
+                    // the invert mode is mainly for convenience, so that users click less times to set up correct unbunching points.
+                    // IPT2 default for all stops is that unbunch = true
+                    return lineIsUsingUnbunching != stopIsUsingUnbunching;
                 default:
                     // dont block if somehow cannot determine if should insta depart
                     return false;
