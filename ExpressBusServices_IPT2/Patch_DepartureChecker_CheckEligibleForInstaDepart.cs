@@ -13,7 +13,7 @@ namespace ExpressBusServices_IPT2
     public class Patch_DepartureChecker_CheckEligibleForInstaDepart
     {
         [HarmonyPostfix]
-        public static void PostFix(ref bool __result, ushort vehicleID, ref Vehicle vehicleData)
+        public static void PostFix(ref bool __result, ushort stopID, ushort transportLineID)
         {
             if (IPT2UnbunchingRuleReader.CurrentRuleInterpretation == IPT2UnbunchingRuleReader.InterpretationMode.FIRST_PRINCIPLES)
             {
@@ -21,7 +21,7 @@ namespace ExpressBusServices_IPT2
                 return;
             }
             // Determine if we are allowed to depart immediately by reading the IPT2 settings.
-            __result = IPT2UnbunchingRuleReader.ReadAndInterpretIsConsideredAsTerminus(ref vehicleData, stopID);
+            __result = IPT2UnbunchingRuleReader.ReadAndInterpretIsConsideredAsTerminus(stopID, transportLineID);
             return;
         }
     }
