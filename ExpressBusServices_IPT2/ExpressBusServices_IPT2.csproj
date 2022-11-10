@@ -78,6 +78,7 @@
     <Compile Include="Patch_Detour_TrolleybusAI_DepartCheck.cs" />
     <Compile Include="Patch_Detour_BusAI_DepartCheck.cs" />
     <Compile Include="Patch_DepartureChecker_CheckEligibleForInstaDepart.cs" />
+    <Compile Include="Patch_PickDropLookup_RecheckUnbunching.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
