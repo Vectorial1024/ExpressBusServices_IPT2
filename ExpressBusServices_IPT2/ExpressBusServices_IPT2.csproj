@@ -55,7 +55,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="ImprovedPublicTransport2">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\255710\2864524762\ImprovedPublicTransport2.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\255710\928128676\ImprovedPublicTransport2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -74,6 +74,7 @@
     <Compile Include="IPT2UnbunchingRuleReader.cs" />
     <Compile Include="ModSettingController.cs" />
     <Compile Include="PatchController.cs" />
+    <Compile Include="Patch_CanLeavePatch_PatchPostFix.cs" />
     <Compile Include="Patch_Detour_TramAI_DepartCheck.cs" />
     <Compile Include="Patch_Detour_TrolleybusAI_DepartCheck.cs" />
     <Compile Include="Patch_Detour_BusAI_DepartCheck.cs" />

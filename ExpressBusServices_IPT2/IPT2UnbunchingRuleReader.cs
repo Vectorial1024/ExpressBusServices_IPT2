@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ImprovedPublicTransport2;
+using ImprovedPublicTransport2.Data;
 
 namespace ExpressBusServices_IPT2
 {
