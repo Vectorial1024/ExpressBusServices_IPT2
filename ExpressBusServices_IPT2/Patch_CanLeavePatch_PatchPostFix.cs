@@ -1,5 +1,4 @@
-﻿using ExpressBusServices;
-using HarmonyLib;
+﻿using HarmonyLib;
 using ImprovedPublicTransport2.HarmonyPatches.XYZVehicleAIPatches;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +20,7 @@ namespace ExpressBusServices_IPT2
         };
 
         [HarmonyTranspiler]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> TranspileIpt2(IEnumerable<CodeInstruction> originalMethod)
         {
             // change of method; we will just use transpilers to inject our code at the top of the IPT2 method
