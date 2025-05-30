@@ -4,11 +4,14 @@ using ImprovedPublicTransport2.HarmonyPatches.XYZVehicleAIPatches;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
+using ExpressBusServices.Util;
+using JetBrains.Annotations;
 
 namespace ExpressBusServices_IPT2
 {
     [HarmonyPatch(typeof(CanLeavePatch))]
-    [HarmonyPatch("Postfix")]
+    [HarmonyPatch(nameof(CanLeavePatch.Postfix))]
+    [UsedImplicitly]
     public class Patch_CanLeavePatch_PatchPostFix
     {
         public static ItemClass.SubService[] managedTransportTypes = {
@@ -36,6 +39,7 @@ namespace ExpressBusServices_IPT2
             yield break;
         }
 
+        [UsedImplicitly]
         public static void TouchCanLeaveFlag(ushort vehicleID, ref bool ipt2CanLeave)
         {
             // check the transport type: in latest verison of IPT2, they unified all transport type to use the same method
@@ -53,8 +57,7 @@ namespace ExpressBusServices_IPT2
                 return;
             }
             // we just call the code on our side one more time in case our side fails
-            BusPickDropLookupTable.DetermineIfBusShouldDepart(ref ipt2CanLeave, vehicleID, ref vehicleData);
-            return;
+            VehicleDepartureUtil.ReviewDepartureStatus(ref ipt2CanLeave, vehicleID, ref vehicleData);
         }
     }
 }

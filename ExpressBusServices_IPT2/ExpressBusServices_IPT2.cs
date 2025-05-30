@@ -1,31 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CitiesHarmony.API;
+﻿using CitiesHarmony.API;
 using ColossalFramework.UI;
 using ICities;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace ExpressBusServices_IPT2
 {
+    [UsedImplicitly]
     public class ExpressBusServices_IPT2 : LoadingExtensionBase, IUserMod
     {
-        public virtual string Name
-        {
-            get
-            {
-                return "Express Bus Services (IPT2 plugin)";
-            }
-        }
+        public virtual string Name => "Express Bus Services (IPT2 plugin)";
 
-        public virtual string Description
-        {
-            get
-            {
-                return "Reads information from IPT2 unbunching settings to help the main mod.";
-            }
-        }
+        public virtual string Description => "Reads information from IPT2 unbunching settings to help the main mod.";
 
         /// <summary>
         /// Mod instance is created; initialize our values
@@ -82,6 +68,7 @@ namespace ExpressBusServices_IPT2
         // It seems they will dynamically find whether a certain method that matches some criteria
         // exists, and then apply UI settings to it.
         // This is kinda like an in-house Harmony Lib except it targets some very specific areas.
+        [UsedImplicitly]
         public void OnSettingsUI(UIHelperBase helper)
         {
             UIHelperBase group = helper.AddGroup("Express Bus Services: Settings");
@@ -90,7 +77,7 @@ namespace ExpressBusServices_IPT2
             var dropdown = group.AddDropdown("IPT2 Unbunching Interpretation",
                 new string[] {
                     "First Principles",
-                    "Respect IPT2 unbunching", 
+                    "Respect IPT2 unbunching",
                     "Invert IPT2 unbunching" },
                 0,
                 (index) => {
@@ -105,7 +92,7 @@ namespace ExpressBusServices_IPT2
             }
         }
 
-        private void UnifyHarmonyVersions()
+        private static void UnifyHarmonyVersions()
         {
             if (HarmonyHelper.IsHarmonyInstalled)
             {

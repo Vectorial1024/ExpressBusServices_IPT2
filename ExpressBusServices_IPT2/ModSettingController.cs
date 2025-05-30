@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using UnityEngine;
 
 namespace ExpressBusServices_IPT2
 {
-    public class ModSettingController
+    public static class ModSettingController
     {
         public static readonly string pathToConfigXml = "ExpressBusServices_IPT2_Config.xml";
 

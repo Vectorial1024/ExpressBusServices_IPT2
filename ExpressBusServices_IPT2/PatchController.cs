@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using HarmonyLib;
 
 namespace ExpressBusServices_IPT2
 {
-    internal class PatchController
+    internal static class PatchController
     {
-        public static string HarmonyModID
-        {
-            get
-            {
-                return "com.vectorial1024.cities.ebs_ipt2";
-            }
-        }
+        public static string HarmonyModID => "com.vectorial1024.cities.ebs_ipt2";
 
         /*
          * The "singleton" design is pretty straight-forward.
