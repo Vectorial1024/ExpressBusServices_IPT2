@@ -5,7 +5,7 @@ Configurable unbunching behavior of the base mod based on IPT2's unbunching sett
 [*]REQUIRES BASE MOD: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2262054175]Express Bus Services[/url]
 [*]Three bus unbunching interpretation modes available for IPT2 users; explained below
 [*]Settings XML located next to the Cities Skylines exe, name is "ExpressBusServices_IPT2_Config.xml"
-[*]If you are using [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3714961481]Improved Public Transport Essentials[/url] then you DO NOT NEED this mod!
+[*]If you are using [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3714961481]Improved Public Transport Essentials[/url] then you DO NOT NEED this plugin!
 [/list]
 [h1]Interpretation Modes[/h1]
 [list]
